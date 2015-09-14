@@ -1,29 +1,33 @@
 $(document).ready(function() {
-    $("form#new-place").submit(function(event) {
+    // $('#new-to-do').click(function() {
+    $('form#new-to-do').submit(function(event) {
         event.preventDefault();
 
-        var inputtedDate = $("input#new_date").val();
-        var inputtedCity = $("input#new_city").val();
-        var inputtedCountry = $("input#new_country").val();
-        var inputtedNotes = $("textarea#new_notes").val();
+//variables
+        var taskDescription = $('input#new_task').val();
+        // var taskDueDate = $('input#new_date').val();
 
-        var newPlace = { date : inputtedDate, city : inputtedCity, country : inputtedCountry, notes : inputtedNotes };
+//objects
+        var newTask = {
+            descriptions : taskDescription
+            // due_date : taskDueDate,
+        };
+
+//adds newly created task to list of tasks
+        $('ul#tasks').append("<li><span class = 'task'><input type='checkbox' id = 'task_checkbox'></input>" + newTask.descriptions + "</span></li>");
+
+//reset the form to empty
+        $('input#new_task').val('');
 
 
-    $("ul#places").append("<li><span class='place'>" + newPlace.date + ", " + newPlace.city + "</span></li>");
 
-    $(".place").last().click(function() {
-        $("#show-place").show();
 
-        $("#show-place h2").text(newPlace.city);
-        $(".country").text(newPlace.country);
-        $(".date").text(newPlace.date);
-        $(".notes").text(newPlace.notes);
+//on checkbox check, moves item to list of completed items
+        $('.task').last().click(function() {
+            // $('input#task_checkbox').prop('checked')
+            $(this).parent('li').remove();
+            $('ul#completed').append("<li><span class = 'task'><input type='checkbox' id = 'task_checkbox'></input>" + newTask.descriptions + "</span></li>");
+        });
+
     });
-
-    $("input#new_date").val("");
-    $("input#new_city").val("");
-    $("input#new_country").val("");
-    $("textarea#new_notes").val("");
-});
 });
