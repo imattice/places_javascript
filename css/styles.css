@@ -1,12 +1,4 @@
-#show-place {
-  display: none;
-}
-
-.place {
-  cursor: pointer;
-  color: #0088cc;
-}
-
-.place:hover {
-  text-decoration: underline;
+li {
+    border: black 1px solid;
+    padding: 25px;
 }

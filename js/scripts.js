@@ -14,7 +14,7 @@ $(document).ready(function() {
         };
 
 //adds newly created task to list of tasks
-        $('ul#tasks').append("<li><span class = 'task'><input type='checkbox' id = 'task_checkbox'></input>" + newTask.descriptions + "</span></li>");
+        $('ul#tasks').append("<li><span class = 'task'>" + newTask.descriptions + "</span></li>");
 
 //reset the form to empty
         $('input#new_task').val('');
@@ -22,12 +22,21 @@ $(document).ready(function() {
 
 
 
-//on checkbox check, moves item to list of completed items
-        $('.task').last().click(function() {
-            // $('input#task_checkbox').prop('checked')
-            $(this).parent('li').remove();
-            $('ul#completed').append("<li><span class = 'task'><input type='checkbox' id = 'task_checkbox'></input>" + newTask.descriptions + "</span></li>");
-        });
 
+//on checkbox check, moves item to list of completed items
+    $('span.task').last().click(function() {
+        // $('input#task_checkbox').prop('checked')
+        $(this).parent('li').remove();
+        $('ul#completed').append("<li><span class = 'complete'>" + newTask.descriptions + "</span></li><br>");
+
+//moves item to list of to-do items
+        $('span.complete').last().click(function() {
+            $(this).parent('li').remove();
+            $('ul#tasks').append("<li><span class = 'task'>" + newTask.descriptions + "</span></li><br>");
+        });
     });
+
+
+
+});
 });
