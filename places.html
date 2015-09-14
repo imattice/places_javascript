@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+        <script src="js/jquery-1.11.3.js"></script>
+        <script src="js/scripts.js"></script>
+        <title>Places you have been</title>
+    </head>
+    <body>
+        <h1>Places you have been</h1>
+
+        <form id="new-place">
+            <h2>Add new place</h2>
+                <label for="new_date">Date:</label>
+                    <input type='text' id='new_date'>
+                    <br>
+                <label for='new_city'>City:</label>
+                    <input type='text' id='new_city'>
+                    <br>
+                <label for='new_country' id='new_country'>Country:</label>
+                    <input type='text' id='new_country'>
+                    <br>
+                <label for='new_notes' id='new_notes'>Notes:</label>
+                    <textarea id='new_notes' name='new_notes' cols='40' rows='5'></textarea>
+                    <!-- <input type='text' id='new_notes'> -->
+                    <br>
+                    <br>
+
+
+                <button type='submit'>Add</button>
+        </form>
+
+        <ul id = "places"></ul>
+
+        <div id="show-place">
+            <h2></h2>
+
+            <p>Country: <span class="country"></span></p>
+            <p>Date: <span class="date"></span></p>
+            <p>Notes: <span class="notes"></span></p>
+        </div>
+
+    </body>
+</html>
