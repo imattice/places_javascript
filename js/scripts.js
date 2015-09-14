@@ -1,42 +1,37 @@
+var completeTask = function(x,newTask2) {
+    if($(x).attr('id')=='task') {
+        $(x).parent('div#task').remove();
+        $('ul#completed').append("<div id='complete'><li id='complete'>" + newTask2.descriptions + "</li></div>");
+    } else {
+        $(x).parent('div#complete').remove();
+        $('ul#tasks').append("<div id='task'><li id='task'>" + newTask2.descriptions + "</li></div>");
+    }
+}
+
 $(document).ready(function() {
-    // $('#new-to-do').click(function() {
     $('form#new-to-do').submit(function(event) {
         event.preventDefault();
 
-//variables
+        //variables
         var taskDescription = $('input#new_task').val();
-        // var taskDueDate = $('input#new_date').val();
 
-//objects
+        //objects
         var newTask = {
             descriptions : taskDescription
-            // due_date : taskDueDate,
         };
 
-//adds newly created task to list of tasks
-        $('ul#tasks').append("<li><span class = 'task'>" + newTask.descriptions + "</span></li>");
+        //adds newly created task to list of tasks
+        $('ul#tasks').append("<div id = 'task'><li id = 'task'>" + newTask.descriptions + "</li></div>");
 
-//reset the form to empty
+        //reset the form to empty
         $('input#new_task').val('');
 
-
-
-
-
-//on checkbox check, moves item to list of completed items
-    $('span.task').last().click(function() {
-        // $('input#task_checkbox').prop('checked')
-        $(this).parent('li').remove();
-        $('ul#completed').append("<li><span class = 'complete'>" + newTask.descriptions + "</span></li><br>");
-
-//moves item to list of to-do items
-        $('span.complete').last().click(function() {
-            $(this).parent('li').remove();
-            $('ul#tasks').append("<li><span class = 'task'>" + newTask.descriptions + "</span></li><br>");
+        //on checkbox check, moves item to list of completed items
+        $('li').last().click(function() {
+            completeTask(this,newTask);
+            $('li').last().click(function() {
+                completeTask(this,newTask);
+            });
         });
     });
-
-
-
-});
 });

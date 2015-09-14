@@ -1,4 +1,34 @@
+/*fonts*/
+    @font-face{
+        font-family: "Bad Guy Black";
+        src: url("Bad Guy Black.ttf")
+    }
+
+    @font-face {
+        font-family: "Thron";
+        src: url("Thron.otf")
+    }
+
 li {
-    border: black 1px solid;
+    border: black 2px solid;
     padding: 25px;
+    background-color: #ea9123;
+}
+
+body {
+    background-image: url('tiger.jpg');
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+h1 {
+    font-family: "Bad Guy Black", sans-serif;
+    color: white;
+}
+
+h2, p, label {
+    font-family: "Thron", serif;
+    color:white;
 }
